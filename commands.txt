@@ -1,0 +1,12 @@
+git init
+git commit -m 'Premier commit'
+mkdir Keyce-Master-DevOps
+cd Keyce-Master-DevOps
+nano Dockerfile
+nano app.py
+nano requirements.txt
+docker build -t josepha-flask-app .
+docker run -d -p 8081:80 josepha-flask-app
+docker login
+docker josepha-flask-app bongongui08/josepha-flask-app
+docker push bongongui08/josepha-flask-app
