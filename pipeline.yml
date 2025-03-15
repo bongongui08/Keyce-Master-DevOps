@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Publication') {
             steps {
-                sh 'docker login -u bongongui08 -p DevopsKeyce25'
+                sh 'docker login -u bongongui08 -p Azerty@08'
                 sh 'docker tag josepha-flask-app bongongui08/josepha-flask-app'
                 sh 'docker push bongongui08/josepha-flask-app'
             }
