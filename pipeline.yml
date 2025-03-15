@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clonage') {
+            steps {
+                git 'https://github.com/bongongui08/Keyce-Master-DevOps.git'
+            }
+        }
+        stage('Image') {
+            steps {
+                sh 'docker build -t josepha-flask-app .'
+            }
+        }
+        stage('Publication') {
+            steps {
+                sh 'docker login -u bongongui08 -p DevopsKeyce25'
+                sh 'docker tag josepha-flask-app bongongui08/josepha-flask-app'
+                sh 'docker push bongongui08/josepha-flask-app'
+            }
+        }
+    }
+}
