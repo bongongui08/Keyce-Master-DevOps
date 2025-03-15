@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clonage') {
             steps {
-                git 'https://github.com/bongongui08/Keyce-Master-DevOps.git'
+                git branch: 'main', url: 'https://github.com/bongongui08/Keyce-Master-DevOps.git'
             }
         }
         stage('Image') {
