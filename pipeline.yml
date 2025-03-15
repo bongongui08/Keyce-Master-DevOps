@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clonage') {
+            steps {
+                git 'https://github.com/votre_nom_utilisateur/mon_nom-flask-app.git'
+            }
+        }
+        stage('Image') {
+            steps {
+                sh 'docker build -t mon_nom-flask-app .'
+            }
+        }
+        stage('Publication') {
+            steps {
+                sh 'docker login -u votre_nom_utilisateur -p votre_mot_de_passe'
+                sh 'docker tag mon_nom-flask-app votre_nom_utilisateur/mon_nom-flask-app'
+                sh 'docker push votre_nom_utilisateur/mon_nom-flask-app'
+            }
+        }
+    }
+}
